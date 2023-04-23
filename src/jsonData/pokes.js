@@ -35,3 +35,5 @@ const pokes = [
         "idAuthor": 1,
     }
 ]
+
+export default pokes;

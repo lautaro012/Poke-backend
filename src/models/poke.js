@@ -27,7 +27,7 @@ type: {
     required: true,
 },
 idAuthor: {
-    type: Schema.Types.ObjectId,
+    type: Number,
     ref: 'author'
 }
 },

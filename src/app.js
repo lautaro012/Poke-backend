@@ -1,8 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
-import router from './routes/index'
-const bodyParser = require ('body-parser')
+import router from './routes/index.js'
+import bodyParser from 'body-parser'
 
 
 

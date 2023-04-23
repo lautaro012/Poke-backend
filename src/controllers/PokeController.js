@@ -1,9 +1,9 @@
 import { isValidObjectId } from 'mongoose'
 import dotenv from 'dotenv'
-import Poke from '../models/poke'
+import Poke from '../models/poke.js'
 import mongoose from 'mongoose'
 
-const bcrypt=require('bcryptjs')
+
 const ObjectId = mongoose.Types.ObjectId
 dotenv.config()
 
@@ -17,29 +17,29 @@ export const getPoke = async (req,res) => {
       //   updatedAt: 0
       // })
       // const users= await User.find()
-      const pokes = await Poke.aggregate([
+      const pokes = await Poke.find(
         
-        {
-          $lookup:
-          {
-            from: "orders",
-            let:
-            {
-              aliasOrder: "$orders"
-            },
-            pipeline: [
-              {
-                $match: {
-                  $expr: {
-                    $in: ["$_id","$$aliasOrder"]
-                  }
-                }
-              }
-            ],
-            as: "orderList"
-          }
-        }
-      ])
+        // {
+        //   $lookup:
+        //   {
+        //     from: "orders",
+        //     let:
+        //     {
+        //       aliasOrder: "$orders"
+        //     },
+        //     pipeline: [
+        //       {
+        //         $match: {
+        //           $expr: {
+        //             $in: ["$_id","$$aliasOrder"]
+        //           }
+        //         }
+        //       }
+        //     ],
+        //     as: "orderList"
+        //   }
+        // }
+      )
 
       res.status(200).json(pokes)
 

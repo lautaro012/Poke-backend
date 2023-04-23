@@ -1,14 +1,14 @@
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 // import categories from './jsonData/categories'
-import productos from './jsonData/pokes'
-import Products from './models/poke'
+import productos from './jsonData/pokes.js'
+import Products from './models/poke.js'
 dotenv.config()
 
 const URI = process.env.URI || "error" 
 void (async () => {
   try {
-    const db = await mongoose.connect(URI, {
+    const db = await mongoose.connect('mongodb+srv://lautaro:lautaro@database1.bhfv55z.mongodb.net/?retryWrites=true&w=majority', {
     //   useNewUrlParser: true,
     //   useUnifiedTopology: true
     })
