@@ -57,7 +57,7 @@ export const postPoke = async (req,res) =>  {
       // if( !name || !lastName || !userName || !mail) {res.send('Missing data required')}
       const pokeFind = await Poke.findOne({name: name})
       if(pokeFind === null){
-        const poke = new User(req.body)
+        const poke = new Poke(req.body)
         const savePoke = await poke.save()
         res.json(savePoke)
         
